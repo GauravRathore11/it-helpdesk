@@ -1,3 +1,4 @@
+import "dotenv/config"; // must be first — loads .env before prisma Pool is created
 import { prisma } from "../src/lib/prisma";
 import seedRolesAndUsers from "./seed/seedRolesAndUsers";
 import seedAssets from "./seed/seedAssets";

@@ -55,7 +55,7 @@ export function AdminSidebar({ user }: AdminSidebarProps) {
           >
             <Menu className="w-5 h-5" />
           </button>
-          <span className="font-medium text-black">JDESK</span>
+          <span className="font-medium text-black">IT Helpdesk</span>
         </div>
       </header>
 
@@ -85,7 +85,7 @@ export function AdminSidebar({ user }: AdminSidebarProps) {
               </svg>
             </div>
             <span className="font-semibold text-black text-lg tracking-tight">
-              JDESK
+              IT Helpdesk
             </span>
           </div>
           <button
