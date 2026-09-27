@@ -2,13 +2,13 @@
 
 A full-stack IT helpdesk and asset management platform built with Next.js, Prisma, and PostgreSQL. Designed for internal teams to manage support tickets, track IT assets, and handle approval workflows.
 
-**Live:** [Deployed on Vercel](https://vercel.com) · **Database:** [Neon PostgreSQL](https://neon.tech)
+**Live:** [it-helpdesk-1v7u.vercel.app](https://it-helpdesk-1v7u.vercel.app) · **Demo credentials:** [DEMO.md](DEMO.md) · **Database:** [Neon PostgreSQL](https://neon.tech)
 
 ---
 
 ## Features
 
-- **Authentication** — JWT-based login with role-based access (Admin, Manager, Employee)
+- **Authentication** — JWT-based login with role-based access (Admin, Manager, Agent, Employee)
 - **Ticket Management** — Create, assign, and resolve support tickets with SLA tracking
 - **Asset Inventory** — Track hardware assets, serial numbers, and allocation status
 - **Asset Requests & Approvals** — Multi-step approval workflow for hardware requests
