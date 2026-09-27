@@ -8,8 +8,6 @@ generator client {
 // DIRECT_URL    = Neon direct connection string (used by prisma migrate/db push)
 datasource db {
   provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
 }
 
 

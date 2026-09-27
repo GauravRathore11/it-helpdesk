@@ -48,8 +48,8 @@ export default async function seedRolesAndUsers(
     });
   }
 
-  // ---- MANAGERS (20) ----
-  for (let i = 1; i <= 20; i++) {
+  // ---- MANAGERS (5) ----
+  for (let i = 1; i <= 5; i++) {
     usersData.push({
       name: `Manager ${i}`,
       email: `manager${i}@itsm.com`,
@@ -58,8 +58,8 @@ export default async function seedRolesAndUsers(
     });
   }
 
-  // ---- AGENTS (50) ----
-  for (let i = 1; i <= 50; i++) {
+  // ---- AGENTS (10) ----
+  for (let i = 1; i <= 10; i++) {
     usersData.push({
       name: `Support Agent ${i}`,
       email: `agent${i}@itsm.com`,
@@ -68,8 +68,8 @@ export default async function seedRolesAndUsers(
     });
   }
 
-  // ---- EMPLOYEES (300) ----
-  for (let i = 1; i <= 300; i++) {
+  // ---- EMPLOYEES (30) ----
+  for (let i = 1; i <= 30; i++) {
     usersData.push({
       name: `Employee ${i}`,
       email: `employee${i}@company.com`,
