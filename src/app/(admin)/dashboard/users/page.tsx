@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function UsersPage() {
-  const [role, setRole] = useState<string | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -15,15 +14,15 @@ export default function UsersPage() {
       return;
     }
 
-    const payload = JSON.parse(atob(token.split(".")[1]));
-    setRole(payload.role);
-
-    if (payload.role !== "Admin") {
-      router.push("/dashboard");
+    try {
+      const payload = JSON.parse(atob(token.split(".")[1]));
+      if (payload.roleName !== "ADMIN") {
+        router.push("/dashboard");
+      }
+    } catch {
+      router.push("/login");
     }
-  }, []);
-
-  if (role !== "Admin") return null;
+  }, [router]);
 
   return (
     <div>

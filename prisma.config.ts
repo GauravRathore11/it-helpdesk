@@ -6,7 +6,8 @@ export default defineConfig({
     seed: "ts-node -P tsconfig.seed.json prisma/seed.ts",
   },
   datasource: {
-    url: process.env.DATABASE_URL ?? "",
-    directUrl: process.env.DIRECT_URL ?? "",
+    // Use DIRECT_URL for migrations (bypasses pgbouncer pooler).
+    // Falls back to DATABASE_URL if DIRECT_URL is not set.
+    url: process.env.DIRECT_URL ?? process.env.DATABASE_URL ?? "",
   },
 });

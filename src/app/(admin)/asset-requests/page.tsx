@@ -14,7 +14,6 @@ export default function RequestsPage() {
   const search = searchParams.get("search") || "";
 
   useEffect(() => {
-    setLoading(true);
     Promise.all([
       fetch(`/api/asset-requests${search ? `?search=${search}` : ""}`).then((res) => res.json()),
       fetch("/api/auth/me").then((res) => res.ok ? res.json() : null)

@@ -73,7 +73,7 @@ export default function CreateTicketPage() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
                 <div>
                     <h1 className="text-2xl font-semibold tracking-tight text-gray-900">New Ticket</h1>
-                    <p className="text-sm text-gray-500 mt-1">Describe your issue and we'll get it resolved</p>
+                    <p className="text-sm text-gray-500 mt-1">Describe your issue and we&apos;ll get it resolved</p>
                 </div>
                 <Link href="/tickets" className="inline-flex items-center justify-center bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 shadow-sm">Cancel</Link>
             </div>
