@@ -1,4 +1,4 @@
-name: CI/CD
+name: CI
 
 on:
   push:
@@ -11,7 +11,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # ─── Job 1: CI — runs on every push to dev and main, and on PRs ───────────
   build:
     name: Build & Lint
     runs-on: ubuntu-latest
@@ -44,42 +43,9 @@ jobs:
           NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
           NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
 
-  # ─── Job 2: Deploy Preview — runs on every push to dev ────────────────────
-  deploy-preview:
-    name: Deploy Preview (dev)
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Deploy to Vercel (Preview)
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          # No --prod flag = preview deployment
-          working-directory: ./
-
-  # ─── Job 3: Deploy Production — runs only on push to main ─────────────────
-  deploy-production:
-    name: Deploy Production (main)
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Deploy to Vercel (Production)
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: "--prod"
-          working-directory: ./
+# Deployments are handled by Vercel's native GitHub integration, which is
+# already linked to this repo (project: it-helpdesk-1v7u):
+#   push to main -> production   https://it-helpdesk-1v7u.vercel.app
+#   push to dev  -> preview
+# Do not add vercel-action jobs here — they duplicate that and require
+# VERCEL_TOKEN / VERCEL_ORG_ID / VERCEL_PROJECT_ID secrets to stay in sync.
